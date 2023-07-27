@@ -1,27 +1,15 @@
-// import 'dart:io';
+import 'dart:io';
 
-// import 'functions.dart';
+void main(List<String> args) {
+  var item_no = stdin.readLineSync()!;
+  // String.fromCharCodes(item_no.runes.toList());
+  List items = [
+    '1 : Chicken Boti',
+    '2 : Beef Boti',
+    '3 : Chicken Malai Boti',
+    '4 : Chicken Afghani Boti',
+  ];
+  // runes.s.toList();/
 
-// void main() {
-//   bool state = true;
-//   while (state) {
-//     print("""
-//         ~Welcome to SMIT Restaurant~
-//         ============================
-//         ____________________________
-//             press 1 for `Menu`  
-//             press 2 for `Feedback`  
-//             press q for `Exit` 
-//         ____________________________       
-// """);
-//     var userinput = stdin.readLineSync();
-//     if (userinput == "1") {
-//       print('menu');
-//     } else if (userinput == "2") {
-//       print('menu');
-//     } else {
-//       print("Thank You, for coming!");
-//       state = false;
-//     }
-//   }
-// }
+  print(items[6]);
+}

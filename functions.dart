@@ -9,6 +9,8 @@ Continue() {
   more = more.toLowerCase();
   if (more == 'no') {
     state = false;
+  } else {
+    menu();
   }
 }
 
@@ -43,7 +45,8 @@ menu() {
     Rolls();
     Continue();
   } else {
-    state = false;
+    main();
+    // state = false;
   }
 }
 
@@ -57,6 +60,8 @@ FastFood() {
     for (var burger in user_wants) {
       print("~$burger~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else if (whichfastfood == '2') {
     var user_wants = fastfoods['Sandwiches'];
     print('------SANDWICHES------');
@@ -64,6 +69,8 @@ FastFood() {
     for (var sandwitch in user_wants) {
       print("~$sandwitch~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else if (whichfastfood == '3') {
     var user_wants = fastfoods['Pizzas'];
     print('------PIZZAS------');
@@ -71,6 +78,8 @@ FastFood() {
     for (var pizza in user_wants) {
       print("~$pizza~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else {
     state = false;
   }
@@ -87,6 +96,8 @@ BBQ() {
     for (var tikka in user_wants) {
       print("~$tikka~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else if (whichBBQ == '2') {
     var user_wants = barbeque['kababs'];
     print('------KABABS------');
@@ -94,6 +105,8 @@ BBQ() {
     for (var kebab in user_wants) {
       print("~$kebab~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else if (whichBBQ == '3') {
     var user_wants = barbeque['botis'];
     print('------BOTIS------');
@@ -101,6 +114,8 @@ BBQ() {
     for (var boti in user_wants) {
       print("~$boti~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else {
     state = false;
   }
@@ -117,6 +132,8 @@ Rolls() {
     for (var chick_roll in user_wants) {
       print("~$chick_roll~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else if (whichRolls == '2') {
     var user_wants = rolls['Beef Rolls'];
     print('------BEEF ROLLS------');
@@ -124,6 +141,8 @@ Rolls() {
     for (var beef_roll in user_wants) {
       print("~$beef_roll~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else if (whichRolls == '3') {
     var user_wants = rolls['kabab Rolls'];
     print('------KABAB ROLLS------');
@@ -131,6 +150,8 @@ Rolls() {
     for (var kabab_roll in user_wants) {
       print("~$kabab_roll~");
     }
+    order(user_wants); // taking order
+    cart_func(); //showing order
   } else {
     state = false;
   }
@@ -143,6 +164,8 @@ Starters() {
   for (var starter in starters) {
     print("~$starter~");
   }
+  order(starters);
+  cart_func();
 }
 
 // =======================Feedback========================
@@ -153,4 +176,41 @@ feedback() {
   print('Thanks for you precious time (:');
   state = false;
   // print('$feedBack');
+}
+
+order(data) {
+  // List cart = [];
+  print("""
+\n-----------------What you want to eat? Just enter, It's number.-----------------
+NOTE: for multiple items please enter comma seperated (1,2).            
+            """);
+
+  var item_no = stdin.readLineSync()!; // taking order
+  List items = item_no.split(',');
+  for (String item in items) {
+    if (item.contains('1')) {
+      cart.add(data[0]);
+    } else if (item.contains('2')) {
+      cart.add(data[1]);
+    } else if (item.contains('3')) {
+      cart.add(data[2]);
+    } else if (item.contains('4')) {
+      cart.add(data[3]);
+    } else if (item.contains('5')) {
+      cart.add(data[4]);
+    }
+    ;
+  }
+}
+
+cart_func() {
+  print("""
+      ===========================
+          your order til yet!
+        ________________________
+          """);
+  for (var c in cart) {
+    print("         ~$c");
+  }
+  print("         ________________________");
 }

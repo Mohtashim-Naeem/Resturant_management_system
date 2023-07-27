@@ -3,7 +3,7 @@ import 'dart:io';
 import 'functions.dart';
 
 void main() {
-  // bool state = true;
+  print('\n     Greeting from `Assam` and `Mohtashim`!');
   while (state) {
     print("""
 
